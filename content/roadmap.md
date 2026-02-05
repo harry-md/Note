@@ -1,4 +1,4 @@
-Tư vấn từ thằng em, y chang mình nghĩ 😀
+Tư vấn từ thằng em, y chang mình nghĩ 😀.
 
 Để trở thành chuyên gia phát triển phần mềm với nền tảng vững, bạn nên nắm chắc (ít nhất ở mức khá) các nhóm môn sau:
 
