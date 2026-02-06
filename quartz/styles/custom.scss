@@ -1,1 +1,36 @@
 @use "./base.scss";
+
+.center {
+  font-size: 110%;
+}
+
+// This usually works well for paragraphs
+.center p,
+.page-content p {
+  line-height: 1.75;
+}
+
+// Target lists more reliably
+.center li,
+.page-content li,
+.section-li,
+.markdown li,
+ul li,
+ol li {
+  line-height: 1.75 !important;
+}
+
+// Very often helpful: reset/adjust the container of the list itself
+.center ul,
+.center ol,
+.page-content ul,
+.page-content ol {
+  line-height: normal; // prevent inheritance issues
+  margin-block: 1em; // optional: better spacing between lists
+}
+
+// If you still see tight spacing between items, you can add:
+// .center li + li,
+// .page-content li + li {
+//   margin-top: 0.4em; // adds extra space between consecutive <li>s
+// }
