@@ -1,8 +1,8 @@
 ---
-title: Concurrency and Parallelism
+title: Concurrency & Parallelism
 ---
 
-# Concurrency
+# 1. Concurrency
 
 [Definition from Wikipedia](https://en.wikipedia.org/wiki/Concurrency_(computer_science)): The ability of a system to execute multiple tasks through simultaneous execution or time-sharing (context switching), sharing resources and managing interactions. Concurrency improves responsiveness, throughput, and scalability in modern computing
 
@@ -45,9 +45,7 @@ public class ConcurrencyDemo {
 }
 ```
 
-- Task 1
-
-# Parallelism
+# 2. Parallelism
 
 [Definition from Wikipedia](https://en.wikipedia.org/wiki/Parallel_computing): Parallel computing is a type of computation in which many calculations or processes are carried out simultaneously. Large problems can often be divided into smaller ones, which can then be solved at the same time. There are several different forms of parallel computing: bit-level, instruction-level, data, and task parallelism. Parallelism has long been employed in high-performance computing, but has gained broader interest due to the physical constraints preventing frequency scaling. As power consumption (and consequently heat generation) by computers has become a concern in recent years, parallel computing has become the dominant paradigm in computer architecture, mainly in the form of multi-core processors.
 
@@ -58,3 +56,19 @@ Imagine a kitchen with two chefs (Multi-Core CPU).
 2. Chef B is stirring the soup.
 >This is Parallelism. Two tasks are physically happening **at the exact same time**.
 
+```java
+public class ParallelismDemo {
+    public static void main(String[] args) {
+        IntStream.rangeClosed(1, 10).parallel().forEach(i -> {
+            System.out.println(Thread.currentThread().getName() + " is working on the task");
+            try {
+                Thread.sleep(500); // Some expensive operation here
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+}
+```
+
+> NOTE: [Parallel stream](./Lambda-and-Stream.md#22-parallel-stream) is a powerful tool but it should only be used when doing with large data ([When to use parallel stream](https://www.baeldung.com/java-when-to-use-parallel-stream)).

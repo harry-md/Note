@@ -1,4 +1,4 @@
-# Definition
+# 1. Definition
 
 [Definition from Wikipedia](https://en.wikipedia.org/wiki/Process_(computing)): In computing, a process is the instance of a computer program that is being executed by one or many threads. There are many different process models, some of which are light weight, but almost all processes (even entire virtual machines) are rooted in an OS process which comprises the program code, assigned system resources, physical and logical access permissions, and data structures to initiate, control and coordinate execution activity. Depending on the OS, a process may be made up of multiple threads of execution that execute instructions concurrently.
 
@@ -10,7 +10,7 @@
 
 ---
 
-# In Java context ☕️
+# 2. In Java context ☕️
 
 You don't see people use `Process` much in Java (except some specific cases). The reason is in Java, you create a process equivalent to spin up entire JVM (which is a lot). So in Java world people prefer using [Thread](Thread.md) to achieve [concurrency and parallelism](Concurrency-and-Parallelism.md) instead of Process.
 
