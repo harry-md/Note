@@ -41,7 +41,7 @@
 10. **Kỹ nghệ phần mềm (Software Engineering)**
     - Quy trình phát triển (Agile, Scrum), phân tích yêu cầu, thiết kế, testing, CI/CD.
     - Clean code, code review, version control (Git), refactoring.
-    - Đây là phần biến bạn từ “coder” thành “engineer”.
+    - Đây là phần biến bạn từ "coder" thành "engineer".
 11. **Kiểm thử phần mềm (Software Testing)**
     - Unit test, integration test, system test, TDD, test automation.
     - Cách viết unit test tốt, mocking, coverage, testable design.

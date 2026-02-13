@@ -131,5 +131,116 @@ public class Main {
 
 Stream was introduced in Java 8, the Stream API is used to process collections of objects. A stream in Java is a sequence of objects that supports various methods that can be pipelined to produce the desired result. 
 
+### 2.1.1 Stream Methods
+
+**`forEach()`**: iterate though elements in stream.
+
+**`average()`**, **`count()`**, **`min()`**, **`max()`**
+
+**`reduce()`**: reduce the elements of the stream to a single value.
+
+**`filter()`**: select elements as per the Predicate passed as an argument.
+
+**`sorted()`**: sort the stream.
+
+**`map()`**: manipulate elements in the stream.
+
+**`distinct()`**: return a stream with distinct elements.
+
+**`limit()`**: indicate limit of elements to manipulate.
 
 ## 2.2 Parallel Stream
+
+Any stream in Java can easily be transformed from sequential to parallel.
+
+We can achieve this by **adding the parallel method to a sequential stream or by creating a stream using the parallelStream method of a collection**:
+
+```java
+List<Integer> listOfNumbers = Arrays.asList(1, 2, 3, 4);
+listOfNumbers.parallelStream().forEach(number ->
+    System.out.println(number + " " + Thread.currentThread().getName())
+);
+```
+
+Parallel streams enable us to execute code in parallel on separate cores. The final result is the combination of each individual outcome.
+
+However, the order of execution is out of our control. It may change every time we run the program:
+
+**Output:**
+```
+4 ForkJoinPool.commonPool-worker-3
+2 ForkJoinPool.commonPool-worker-5
+1 ForkJoinPool.commonPool-worker-7
+3 main
+```
+
+## 2.3 Fork-Join Framework
+
+Parallel streams make use of the fork-join framework and its common pool of worker threads.
+
+The [fork-join](https://www.baeldung.com/java-fork-join) framework was added to java.util.concurrent in Java 7 to handle task management between multiple threads.
+
+### 2.3.1 Splitting Source
+
+The fork-join framework is in charge of **splitting the source data between worker threads and handling callback on task completion**.
+
+Let’s take a look at an example of calculating a sum of integers in parallel.
+
+We’ll make use of the reduce method and add five to the starting sum, instead of starting from zero:
+
+```java
+List<Integer> listOfNumbers = Arrays.asList(1, 2, 3, 4);
+int sum = listOfNumbers.parallelStream().reduce(5, Integer::sum);
+assertThat(sum).isNotEqualTo(15);
+```
+
+In a sequential stream, the result of this operation would be 15.
+
+But since the reduce operation is handled in parallel, the number five actually gets added up in every worker thread:
+
+![IMG](../../assets/java_stream_reduce2.png)
+
+The actual result might differ depending on the number of threads used in the common fork-join pool.
+
+In order to fix this issue, the number five should be added outside of the parallel stream:
+
+```java
+List<Integer> listOfNumbers = Arrays.asList(1, 2, 3, 4);
+int sum = listOfNumbers.parallelStream().reduce(0, Integer::sum) + 5;
+assertThat(sum).isEqualTo(15);
+```
+
+>Therefore, we need to be careful about which operations can be run in parallel.
+
+### 2.3.2 Common Thread Pool
+
+The number of threads in the common pool is equal to (the number of processor cores - 1).
+
+The API allows us to specify the number of threads it will use by passing a JVM parameter:
+
+```
+-D java.util.concurrent.ForkJoinPool.common.parallelism=4
+```
+
+### 2.3.3 Custom Thread Pool
+
+```java
+List<Integer> listOfNumbers = Arrays.asList(1, 2, 3, 4, 5);
+ForkJoinPool customeThreadPool = new ForkJoinPool(4);
+int sum = customeThreadPool.submit(() -> listOfNumbers.parallelStream()
+                                        .reduce(0, Integer::sum)).get();
+customeThreadPool.shutdown();
+// 10
+```
+
+>**Using custome thread pool is recommended by Oracle**. We should have a very good reason for running parallel streams in custom thread pools.
+
+## 2.4 When to use Parallel Stream
+
+Parallelism can bring performance benefits in certain use cases. But parallel streams cannot be considered as a magical performance booster. So, **sequential streams should still be used as default during development**.
+
+A sequential stream can be converted to a parallel one when we **have actual performance requirements**. Given those requirements, we should first run a performance measurement and consider parallelism as a possible optimization strategy.
+
+A large amount of data and many computations done per element indicate that parallelism could be a good option.
+
+On the other hand, a small amount of data, unevenly splitting sources, expensive merge operations and poor memory locality indicate a potential problem for parallel execution.
