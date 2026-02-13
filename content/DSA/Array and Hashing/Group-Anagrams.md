@@ -1,5 +1,6 @@
 ---
 title: Group Anagrams 
+tag: [DSA, Medium, Array, Hash Table, String, Sorting]
 ---
 
 Độ khó: Medium

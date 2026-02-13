@@ -1,3 +1,7 @@
+---
+tag: [Java, JVM, GC]
+---
+
 # 1. Overview
 ![Overview of a JVM](../../assets/JvmSpec7.png)
 

@@ -1,5 +1,6 @@
 ---
 title: Lambda & Stream
+tag: [Java, Lambda, Stream, Parallel Stream]
 ---
 
 # 1. Lambda Expression
@@ -119,7 +120,7 @@ public class Main {
 | Interface | Method | Purpose |
 | --------------- | --------------- | --------------- |
 | `Predicate` | `boolean test(T t)` | Tests a given condition and returns true or false. |
-| `Consumer` | `void acept(T t)` | Performs an action on the given argument without returning a result. |
+| `Consumer` | `void accept(T t)` | Performs an action on the given argument without returning a result. |
 | `Supplier` | `T get()` | Supplies or generates a result without taking any input. |
 | `Comparator<T>` | `int compare(T o1, T o2)` | Compares two objects to determine their order. |
 | `Comparable<T>` | `int compareTo(T o)` | Defines the natural ordering for objects of a class. |

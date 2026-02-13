@@ -1,5 +1,6 @@
 ---
 title: SQL & JDBC
+tag: [Java, JDBC, Database]
 ---
 
 # 1. SQL

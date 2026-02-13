@@ -1,5 +1,6 @@
 ---
 title: Synchronization & Lock
+tag: [Java, Concurrency, Parallelism, Lock, Synchronization]
 ---
 
 # 1. The Problem: Race Condition

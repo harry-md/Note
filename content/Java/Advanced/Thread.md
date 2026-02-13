@@ -1,3 +1,7 @@
+---
+tag: [Java, Concurrency, Parallelism]
+---
+
 # 1. Definition
 
 [Definition from Wikipedia](<https://en.wikipedia.org/wiki/Thread_(computing)>): a thread of execution is the smallest sequence of programmed instructions that can be managed independently by a scheduler, which is typically a part of the operating system. In many cases, a thread is a component of a process.

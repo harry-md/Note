@@ -1,5 +1,6 @@
 ---
 title: Atomic Variables & CAS
+tag: [Java]
 ---
 
 # 1. The Problem: Compound Actions

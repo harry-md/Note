@@ -1,5 +1,6 @@
 ---
 title: Spring AOP
+tag: [Spring Framework, AOP, Aspect, OOP]
 ---
 # Definition
 

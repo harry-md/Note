@@ -1,5 +1,6 @@
 ---
 title: Concurrency & Parallelism
+tag: [Java, Concurrency, Parallelism]
 ---
 
 # 1. Concurrency

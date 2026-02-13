@@ -1,5 +1,6 @@
 ---
 title: Generics
+tag: [Java, Generics, Collection, Datastructure]
 ---
 
 # 1. Generic Programming
