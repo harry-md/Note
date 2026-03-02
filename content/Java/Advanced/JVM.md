@@ -3,7 +3,7 @@ tag: [Java, JVM, GC]
 ---
 
 # 1. Overview
-![Overview of a JVM](../../assets/JvmSpec7.png)
+![[JvmSpec7.png]]
 
 **Method Area:**
 - Store code, constants and other class data (class name, parent's class name, methods, fields).

@@ -42,7 +42,7 @@ FROM <table-name>
 
 **Join**
 
-![Join Image](../../assets/sql-join.jpg)
+![[sql-join.jpg]]
 
 ## 1.2 Stored Procedure
 
@@ -82,7 +82,7 @@ SELECT @c;
 
 JDBC is an API that helps applications to communicate with databases. It allows Java programs to connect to a database, run queries, retrieve and manipulate data. Because of JDBC, Java applications can easily work with different relational databases like MySQL, Oracle, PostgreSQL and more.
 
-![JDBC Architecture](../../assets/JDBC-Architecture.webp)
+![[JDBC-Architecture.webp]]
 
 1. **Application:** It can be a Java application or servlet that communicates with a data source.
 2. **JDBC API:** It allows Java programs to execute SQL queries and get results from the database. Some key components of JDBC API include:

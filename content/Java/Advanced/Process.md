@@ -9,7 +9,7 @@ tag: [Java, Process, Parallelism, Concurrency]
 
 **In more simple term**: A process is like an abstract 'container' entity for running threads. Therefore, a process can't execute code because it just contains threads and threads are the ones doing the task. The OS assigns some system resources to the process when it is created.
 
-![Process and Thread](../../assets/Concepts-_Program_vs._Process_vs._Thread.jpg)
+![[Concepts-_Program_vs._Process_vs._Thread.jpg]]
 *Overview of Process*
 
 ---

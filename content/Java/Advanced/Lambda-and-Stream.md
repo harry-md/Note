@@ -199,7 +199,7 @@ In a sequential stream, the result of this operation would be 15.
 
 But since the reduce operation is handled in parallel, the number five actually gets added up in every worker thread:
 
-![IMG](../../assets/java_stream_reduce2.png)
+![[java_stream_reduce2.png]]
 
 The actual result might differ depending on the number of threads used in the common fork-join pool.
 

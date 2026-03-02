@@ -166,7 +166,7 @@ public static void main(String[] args) {
 
 ## 1.5 Java Collection Framework (`java.util.*`)
 
-![Collection Framwork](../../assets/collection.webp)
+![[collection.webp]]
 
 ### 1.5.1 Collection
 
