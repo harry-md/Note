@@ -19,7 +19,7 @@ This is performance heaven for a CPU. The variable `myPrimitives` on the Stack h
 
 When you iterate through this array (e.g., `myPrimitives[0]`, then `myPrimitives[1]`), the CPU does one jump to the Heap and then simply reads the next memory slot. Modern CPUs are designed for this; they are super efficient at reading contiguous blocks of data. This is called spatial locality.
 
-![Fastest](../../assets/fastest.svg)
+![[fastest.svg]]
 
 # 2. The Slower Path - `ArrayList<Integer>`
 
@@ -51,7 +51,7 @@ When you add `myList.add(1)`, Java doesn’t create a new object. It just finds 
 3. **THE SLOW JUMP**: CPU must now jump from the pointer array on the Heap to a completely different location on the Heap to read the real value `1` inside the Integer Object.
 4. CPU returns to the array, reads slot 1 (`104`), and performs another jump.
 
-![fast](../../assets/fast.svg)
+![[fast.svg]]
 
 # 3. The Fragmentation Trap
 
@@ -65,7 +65,7 @@ Now, the performance hit is severe. When you jump to read object `200`, your CPU
 
 This is a complete **CPU Cache Miss**. The CPU must waste precious time waiting for the RAM to find the memory page for object `300`, then again for `1000`. This is memory **fragmentation**.
 
-![slow](../../assets/slow.svg)
+![[slow.svg]]
 
 # 4. Comparing performance for iteration
 
